@@ -74,10 +74,16 @@ public class Player {
     }
 
     /*
-     * TODO: removes and returns the tile in given index
+     * Removes and returns the tile in given index
      */
     public Tile getAndRemoveTile(int index) {
-        return null;
+        Tile removedTile = getTiles()[index];
+        for(int i = index; i < getTiles().length-1; i++) {
+            playerTiles[i] = playerTiles[i+1];
+        }
+        playerTiles[getTiles().length-1] = null;
+        numberOfTiles = getTiles().length-1;
+        return removedTile;
     }
 
     /*
