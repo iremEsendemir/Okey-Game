@@ -99,7 +99,7 @@ public class OkeyGame {
      * the current status. Print whether computer picks from tiles or discarded ones.
      */
     public void pickTileForComputer() {
-
+        
     }
 
     /*
@@ -120,7 +120,7 @@ public class OkeyGame {
      * that player's tiles
      */
     public void discardTile(int tileIndex) {
-
+        lastDiscardedTile = players[currentPlayerIndex].getAndRemoveTile(tileIndex);
     }
 
     public void currentPlayerSortTilesColorFirst() {

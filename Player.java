@@ -92,7 +92,13 @@ public class Player {
      * have more than 15 tiles at a time
      */
     public void addTile(Tile t) {
-
+        if (numberOfTiles != 15) {
+            playerTiles[15] = t;
+            numberOfTiles = 15;
+        } 
+        else {
+            System.out.println("You already have 15 tiles.");
+        }
     }
 
     /*
