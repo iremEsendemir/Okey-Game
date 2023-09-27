@@ -92,10 +92,11 @@ public class OkeyGame {
                 countOfTilesLongerThan4++;
             }
             else if(tileLengths[i] >= 3) {
-                countOfTilesLongerThan4++;
+                countOfTilesLongerThan3++;
             }
         }
-        if((countOfTilesLongerThan4 == 8 && countOfTilesLongerThan3 == 6) || (countOfTilesLongerThan4 == 5 && countOfTilesLongerThan3 == 9)) {
+        if((countOfTilesLongerThan4 == 8 && countOfTilesLongerThan3 == 6) || 
+        (countOfTilesLongerThan4 == 5 && countOfTilesLongerThan3 == 9)) {
             return true;
         }
         return false;
