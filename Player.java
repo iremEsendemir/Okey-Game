@@ -87,7 +87,7 @@ public class Player {
     }
 
     /*
-     * TODO: adds the given tile at the end of playerTiles array, should also
+     * Adds the given tile at the end of playerTiles array, should also
      * update numberOfTiles accordingly. Make sure the player does not try to
      * have more than 15 tiles at a time
      */
@@ -102,7 +102,7 @@ public class Player {
     }
 
     /*
-     * TODO: uses bubble sort to sort playerTiles in increasing color and value
+     * Uses bubble sort to sort playerTiles in increasing color and value
      * value order: 1 < 2 < ... < 12 < 13
      * color order: Y < B < R < K
      * color is more important in this ordering, a sorted example:
@@ -125,7 +125,7 @@ public class Player {
     }
 
     /*
-     * TODO: uses bubble sort to sort playerTiles in increasing value and color
+     * Uses bubble sort to sort playerTiles in increasing value and color
      * value order: 1 < 2 < ... < 12 < 13
      * color order: Y < B < R < K
      * value is more important in this ordering, a sorted example:

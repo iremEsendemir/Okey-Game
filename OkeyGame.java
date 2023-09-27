@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class OkeyGame {
 
     Player[] players;
@@ -27,7 +32,7 @@ public class OkeyGame {
     }
 
     /*
-     * TODO: distributes the starting tiles to the players
+     * Distributes the starting tiles to the players
      * player at index 0 gets 15 tiles and starts first
      * other players get 14 tiles
      * this method assumes the tiles are already sorted
@@ -48,7 +53,7 @@ public class OkeyGame {
     }
 
     /*
-     * TODO: get the last discarded tile for the current player
+     * Get the last discarded tile for the current player
      * (this simulates picking up the tile discarded by the previous player)
      * it should return the toString method of the tile so that we can print what we picked
      */
@@ -58,7 +63,7 @@ public class OkeyGame {
     }
 
     /*
-     * TODO: get the top tile from tiles array for the current player
+     * Get the top tile from tiles array for the current player
      * that tile is no longer in the tiles array (this simulates picking up the top tile)
      * it should return the toString method of the tile so that we can print what we picked
      */
@@ -77,10 +82,15 @@ public class OkeyGame {
     }
 
     /*
-     * TODO: should randomly shuffle the tiles array before game starts
+     * Should randomly shuffle the tiles array before game starts
      */
     public void shuffleTiles() {
-
+        List<Tile> list = new ArrayList<>(Arrays.asList(tiles));
+        Collections.shuffle(list);
+        for(int i = 0; i < tiles.length; i++) {
+            tiles[i] = list.get(i);
+        } 
+        System.out.println(Arrays.toString(tiles));
     }
 
     /*
@@ -115,7 +125,7 @@ public class OkeyGame {
     }
 
     /*
-     * TODO: Pick a tile for the current computer player using one of the following:
+     * Pick a tile for the current computer player using one of the following:
      * - picking from the tiles array using getTopTile()
      * - picking from the lastDiscardedTile using getLastDiscardedTile()
      * You may choose randomly or consider if the discarded tile is useful for

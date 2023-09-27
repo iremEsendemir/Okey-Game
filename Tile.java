@@ -15,7 +15,7 @@ public class Tile {
     }
 
     /*
-     * TODO: should check if the given tile t and this tile contain the same color and value
+     * Should check if the given tile t and this tile contain the same color and value
      * return true if they are matching, false otherwise
      */
     public boolean matchingTiles(Tile t) {
