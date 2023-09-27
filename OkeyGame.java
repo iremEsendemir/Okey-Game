@@ -33,7 +33,16 @@ public class OkeyGame {
      * this method assumes the tiles are already sorted
      */
     public void distributeTilesToPlayers() {
-
+        for(int i = 0; i < 15; i++){
+            players[currentPlayerIndex].playerTiles[i] = tiles[i];
+            players[i].numberOfTiles++;
+        }
+        for(int i = 1; i < 4; i++) {
+            for(int j = 0; j < 14; j++){
+                players[i].playerTiles[j] = tiles[j + 1 + i*14];
+                players[i].numberOfTiles++;
+            }
+        }
     }
 
     /*
@@ -42,7 +51,8 @@ public class OkeyGame {
      * it should return the toString method of the tile so that we can print what we picked
      */
     public String getLastDiscardedTile() {
-        return null;
+        players[currentPlayerIndex].addTile(lastDiscardedTile);
+        return lastDiscardedTile.toString();
     }
 
     /*
