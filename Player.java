@@ -93,7 +93,7 @@ public class Player {
      */
     public void addTile(Tile t) {
         if (numberOfTiles != 15) {
-            playerTiles[15] = t;
+            playerTiles[14] = t;
             numberOfTiles = 15;
         } 
         else {

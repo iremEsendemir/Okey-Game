@@ -109,7 +109,61 @@ public class OkeyGame {
      * the current status. Print whether computer picks from tiles or discarded ones.
      */
     public void pickTileForComputer() {
-        
+        int totalForColor = 0;
+        int totalForValue = 0;
+        int biggestBefore = 0;
+
+        players[currentPlayerIndex].sortTilesValueFirst();
+        for(int i = 0; i < players[currentPlayerIndex].numberOfTiles; i++) {
+            if (players[currentPlayerIndex].getTiles()[i].getValue() >= 3) {
+                totalForValue++;
+            }
+        }
+
+        players[currentPlayerIndex].sortTilesColorFirst();();
+        for(int i = 0; i < players[currentPlayerIndex].numberOfTiles; i++) {
+            if (players[currentPlayerIndex].getTiles()[i].getValue() >= 3) {
+                totalForColor++;
+            }
+        }
+
+        if (totalForColor > totalForValue) {
+            totalForColor = biggestBefore;
+        } else {
+            totalForValue = biggestBefore;
+        }
+
+        String forDiscarded = getLastDiscardedTile();  
+
+        int totalForColorDiscarded = 0;
+        int totalForValueDiscarded = 0;
+        int biggestAfter = 0;
+
+        players[currentPlayerIndex].sortTilesValueFirst();
+        for(int i = 0; i < players[currentPlayerIndex].numberOfTiles; i++) {
+            if (players[currentPlayerIndex].getTiles()[i].getValue() >= 3) {
+                totalForValueDiscarded++;
+            }
+        }
+
+        players[currentPlayerIndex].sortTilesColorFirst();();
+        for(int i = 0; i < players[currentPlayerIndex].numberOfTiles; i++) {
+            if (players[currentPlayerIndex].getTiles()[i].getValue() >= 3) {
+                totalForColorDiscarded++;
+            }
+        }
+
+        if (totalForColorDiscarded > totalForValueDiscarded) {
+            totalForColor = biggestAfter;
+        } else {
+            totalForValue = biggestAfter;
+        }
+
+        if (biggestBefore > biggestAfter) {
+            discardTile(14);
+            getTopTile();
+        } 
+
     }
 
     /*
