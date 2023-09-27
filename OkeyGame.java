@@ -35,7 +35,7 @@ public class OkeyGame {
     public void distributeTilesToPlayers() {
         for(int i = 0; i < 15; i++){
             players[currentPlayerIndex].playerTiles[i] = tiles[i];
-            players[i].numberOfTiles++;
+            players[currentPlayerIndex].numberOfTiles++;
         }
         for(int i = 1; i < 4; i++) {
             for(int j = 0; j < 14; j++){
@@ -61,7 +61,17 @@ public class OkeyGame {
      * it should return the toString method of the tile so that we can print what we picked
      */
     public String getTopTile() {
-        return null;
+        int topTileInt = 57; // just to avoid 'may not be initialized' error
+
+        for(int i=0; tiles[i]==null; i++){
+            topTileInt = i+1; // i is the last null index
+        }
+        Tile topTile = tiles[topTileInt];
+        players[currentPlayerIndex].addTile(topTile);
+
+        tiles[topTileInt] = null;
+
+        return topTile.toString();
     }
 
     /*
@@ -121,7 +131,7 @@ public class OkeyGame {
             }
         }
 
-        players[currentPlayerIndex].sortTilesColorFirst();();
+        players[currentPlayerIndex].sortTilesColorFirst();
         for(int i = 0; i < players[currentPlayerIndex].numberOfTiles; i++) {
             if (players[currentPlayerIndex].getTiles()[i].getValue() >= 3) {
                 totalForColor++;
@@ -147,7 +157,7 @@ public class OkeyGame {
             }
         }
 
-        players[currentPlayerIndex].sortTilesColorFirst();();
+        players[currentPlayerIndex].sortTilesColorFirst();
         for(int i = 0; i < players[currentPlayerIndex].numberOfTiles; i++) {
             if (players[currentPlayerIndex].getTiles()[i].getValue() >= 3) {
                 totalForColorDiscarded++;
@@ -176,7 +186,19 @@ public class OkeyGame {
      * known by other players
      */
     public void discardTileForComputer() {
+        Player player = players[currentPlayerIndex];
+        Tile tileToDiscard = player.getTiles()[0]; 
+        Tile currentTile;
 
+        for(int i=1; i< player.getTiles().length; i++){
+            currentTile = player.getTiles()[i];
+            if(player.findLongestChainOf(currentTile)<=player.findLongestChainOf(tileToDiscard)){
+                tileToDiscard = currentTile;
+            }
+        }
+        discardTile(player.findPositionOfTile(tileToDiscard));
+
+        System.out.println(tileToDiscard.toString() + " is discarded.");
     }
 
     /*
@@ -186,6 +208,7 @@ public class OkeyGame {
      */
     public void discardTile(int tileIndex) {
         lastDiscardedTile = players[currentPlayerIndex].getAndRemoveTile(tileIndex);
+        players[currentPlayerIndex].numberOfTiles--;
     }
 
     public void currentPlayerSortTilesColorFirst() {
