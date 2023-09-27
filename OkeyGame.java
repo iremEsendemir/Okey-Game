@@ -36,11 +36,13 @@ public class OkeyGame {
         for(int i = 0; i < 15; i++){
             players[currentPlayerIndex].playerTiles[i] = tiles[i];
             players[currentPlayerIndex].numberOfTiles++;
+            tiles[i] = null;
         }
         for(int i = 1; i < 4; i++) {
             for(int j = 0; j < 14; j++){
                 players[i].playerTiles[j] = tiles[j + 1 + i*14];
                 players[i].numberOfTiles++;
+                tiles[j + 1 + i*14] = null;
             }
         }
     }
