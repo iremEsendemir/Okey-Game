@@ -111,7 +111,17 @@ public class Player {
      * you are allowed to use Collections.sort method
      */
     public void sortTilesColorFirst() {
-        
+        for(int i = 0; i < numberOfTiles; i++) {
+            for(int j = 0; j < numberOfTiles-i-1; j++){
+                if(playerTiles[j].compareToColorFirst(playerTiles[j+1]) == 1 ){
+                    // swapping tiles
+                    Tile temp = new Tile(0,' ');
+                    temp = playerTiles[j+1];
+                    playerTiles[j+1] = playerTiles[j];
+                    playerTiles[j] = temp;
+                }
+            }
+        }
     }
 
     /*
@@ -124,6 +134,17 @@ public class Player {
      * you are allowed to use Collections.sort method
      */
     public void sortTilesValueFirst() {
+        for(int i = 0; i < numberOfTiles; i++) {
+            for(int j = 0; j < numberOfTiles-i-1; j++){
+                if(playerTiles[j].compareToValueFirst(playerTiles[j+1]) == 1 ){
+                    // swapping tiles
+                    Tile temp = new Tile(0,' ');
+                    temp = playerTiles[j+1];
+                    playerTiles[j+1] = playerTiles[j];
+                    playerTiles[j] = temp;
+                }
+            }
+        }
 
     }
 
