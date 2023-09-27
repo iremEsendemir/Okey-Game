@@ -90,7 +90,6 @@ public class OkeyGame {
         for(int i = 0; i < tiles.length; i++) {
             tiles[i] = list.get(i);
         } 
-        System.out.println(Arrays.toString(tiles));
     }
 
     /*
