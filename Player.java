@@ -181,11 +181,11 @@ public class Player {
     }
 
     public void displayTiles() {
-        System.out.println(playerName + "'s Tiles:");
+        System.out.println(playerName + "'s Tiles:\n");
         for (int i = 0; i < numberOfTiles; i++) {
             System.out.print(playerTiles[i].toString() + " ");
         }
-        System.out.println();
+        System.out.println("\n");
     }
 
     public Tile[] getTiles() {
