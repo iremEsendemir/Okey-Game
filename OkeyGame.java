@@ -209,7 +209,6 @@ public class OkeyGame {
         }
         discardTile(player.findPositionOfTile(tileToDiscard));
 
-        System.out.println(tileToDiscard.toString() + " is discarded.");
     }
 
     /*
@@ -219,6 +218,7 @@ public class OkeyGame {
      */
     public void discardTile(int tileIndex) {
         lastDiscardedTile = players[currentPlayerIndex].getAndRemoveTile(tileIndex);
+        System.out.println(lastDiscardedTile.toString() + " is discarded.");
     }
 
     public void currentPlayerSortTilesColorFirst() {
